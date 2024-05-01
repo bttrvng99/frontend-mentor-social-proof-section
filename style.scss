@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+
+$DarkMagenta: hsl(300, 43%, 22%);
+$SoftPink: hsl(333, 80%, 67%);
+$DarkGrayMagenta: hsl(303, 10%, 53%);
+$LightGrayMagenta: hsl(300, 24%, 96%);
+$White: hsl(0, 0%, 100%);
+
+* {
+  font-family: "League Spartan", sans-serif;
+  color: $DarkMagenta;
+  padding: 0;
+  margin: 0;
+  // box-sizing: border-box;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+p {
+  font-size: 15px;
+  color: $DarkGrayMagenta;
+  line-height: 1.5;
+}
+
+ul {
+  list-style-type: none;
+}
+
+html {
+  background-image: url("./images/bg-pattern-top-desktop.svg"), url('./images/bg-pattern-bottom-desktop.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: top left, bottom right;
+}
+
+html,
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  margin: 5rem;
+  max-width: 1070px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 1rem;
+}
+
+.hero {
+  grid-column-start: 1;
+  grid-column-end: span 1;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+  // height: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem 0;
+  p {
+    margin: 1rem 0 0;
+  }
+}
+
+.ratings {
+  grid-column-start: 2;
+  grid-column-end: span 1;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+  align-content: center;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    li {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 5px;
+      background-color: $LightGrayMagenta;
+      padding: 1rem;
+      border-radius: 5px;
+      font-weight: 700;
+      .stars {
+        margin-right: 0.5rem;
+      }
+
+      &:first-child {
+        margin-right: 4rem;
+      }
+
+      &:nth-child(2) {
+        margin-left: 2rem;
+        margin-right: 2rem;
+      }
+      &:last-child {
+        margin-left: 4rem;
+      }
+    }
+  }
+}
+
+.reviews {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+
+    li {
+      background-color: $DarkMagenta;
+      overflow: hidden;
+      border-radius: 1rem;
+      padding: 2rem;
+      height: fit-content;
+
+      .content {
+        margin-top: 1rem;
+        color: white;
+        font-weight: 500;
+        line-height: 1.5;
+      }
+
+      &:nth-child(2) {
+        margin-top: 2rem;
+      }
+
+      &:last-child {
+        margin-top: 4rem;
+      }
+    }
+  }
+}
+
+.reviewer {
+  display: flex;
+  flex-direction: row;
+  // grid-template-columns: auto auto;
+  // grid-template-rows: auto;
+  color: white;
+
+  img {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
+    width: auto;
+    border-radius: 100%;
+    height: 30px;
+  }
+
+  &-info {
+    color: white;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    &-name {
+      // grid-column: 2 / span 1;
+      // grid-row: 1 / span 1;
+      color: white;
+      font-weight: 700;
+    }
+
+    &-type {
+      // grid-column: 2 / span 1;
+      // grid-row: 2 / span 1;
+      color: $SoftPink;
+      font-weight: 500;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    background-image: url("./images/bg-pattern-top-mobile.svg"), url('./images/bg-pattern-bottom-mobile.svg');
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .ratings {
+    ul {
+      li {
+        &:first-child {
+          margin-left: 0rem;
+          margin-right: 0rem;
+        }
+
+        &:nth-child(2) {
+          margin-left: 0rem;
+          margin-right: 0rem;
+        }
+        &:last-child {
+          margin-left: 0rem;
+          margin-right: 0rem;
+        }
+      }
+    }
+  }
+
+  .reviews {
+    ul {
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+
+      li {
+        &:nth-child(2) {
+          margin-top: 0px;
+        }
+
+        &:last-child {
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+}
